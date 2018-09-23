@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel ="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css"> 
+  
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-1 menuDiv">
+          <ul class="nav flex-column">
+              <li class="nav-item">
+                <a id="viewLink" class="nav-link active" href="#">View</a>
+              </li>
+              <li class="nav-item">
+                <a id="addLink" class="nav-link" href="#">Add</a>
+              </li>
+              <li class="nav-item">
+                <a id="verifyLink" class="nav-link" href="#">Verify</a>
+              </li>
+
+              <div id="updateDelete">
+                <li class="nav-item">
+                  <a id="updateLink" class="nav-link" href="#">Update</a>
+                </li>
+                <li class="nav-item">
+                    <a id="deleteLink"class="nav-link" href="#">Delete</a>
+                </li>
+              </div>
+
+          </ul>
+
+      </div>
+
+      <div id="employeeDiv" class="col-4 padContent">
+        <table id="tblEmployees">
+        </table>
+      </div>
+ 
+      <div id="addDiv" class="col-4 padContent" style="display: none;">
+        <form id="frmAdd" name="frmAdd">
+        Name<br>
+        <input id= "name" type="text"/><br>
+        Office Nbr<br>
+        <input id="officeNum" type="text"/><br>
+        Phone<br>
+        <input id="phoneNum" type="text" size="14" maxlength="12"/>
+        <br><br>
+        <input id="btnAdd" name="btnAdd" type="button" value="Add"/>
+        </form>
+      </div>
+
+      <div id="verifyDiv" class="col-4 padContent" style="display: none;">
+        This feature is not yet implemented.
+      </div>
+
+      <div id="updateDiv" class="col-4 padContent" style="display: none;">
+        <form id="frmUpdate" name="frmUpdate">
+        Name<br>
+        <input id="updatedName" type="text"/><br>
+        Office Nbr<br>
+        <input id="updatedOfficeNum" type="text"/><br>
+        Phone<br>
+        <input id="updatedPhoneNum" type="text" size="14" maxlength="12"/>
+        <br><br>
+        <input id="btnUpdate" name="btnUpdate" type="button" value="Update"/>
+        </form>
+      </div>
+ 
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="employeeList.js"></script> 
+  <!-- <script src="dom.js"></script> -->
+   <script src="app.js"></script> 
+</body>
+
+</html>
