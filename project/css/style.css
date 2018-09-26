@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+href {
+    color: white;
+}
+
+.menuDiv {
+    background-color: black;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    width: 22%;
+}
+
+.contentDiv {
+    margin-left: 22%;
+    overflow: auto;
+    width: 78%;
+}
+
+
+  
+

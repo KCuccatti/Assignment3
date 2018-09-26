@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel ="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css"> 
+  
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="sidebar menuDiv">
+        <a id="viewLink" class="nav-link active" href="#">View</a>
+        <a id="addLink" class="nav-link" href="#">Add</a>
+        <a id="verifyLink" class="nav-link" href="#">Verify</a>
+
+        <div id="updateDelete">
+          <a id="updateLink" class="nav-link" href="#">Update</a>
+          <a id="deleteLink"class="nav-link" href="#">Delete</a>
+        </div>
+      </div>
+    
+      <div class="contentDiv">
+        <div id="employeeDiv" class="main">
+          <table id="tblEmployees">
+          </table>
+        </div>
+  
+        <div id="addDiv" class="main" style="display: none;">
+          <form id="frmAdd" name="frmAdd">
+            Name<br>
+            <input id= "name" type="text"/><br>
+            Office Nbr<br>
+            <input id="officeNum" class="numeric" type="text"/><br>
+            Phone<br>
+            <input id="phoneNum" class="phone" type="text" size="14" maxlength="12"/>
+            <br><br>
+            <input id="btnAdd" name="btnAdd" type="button" value="Add"/>
+          </form>
+        </div>
+
+        <div id="verifyDiv" class="main verifyCls" style="display: none;">
+          <form id="frmVerify" name="frmVerify">
+            Name<br>
+            <input type="text" id="searchForName"/><br><br><br>
+            <input id="btnVerify" name="btnVerify" type="button" value="Check"/>
+          </form>
+        </div>
+
+        <div id="updateDiv" class="main" style="display: none;">
+          <form id="frmUpdate" name="frmUpdate">
+            Name<br>
+            <input id="updatedName" type="text"/><br>
+            Office Nbr<br>
+            <input id="updatedOfficeNum" class="numeric" type="text"/><br>
+            Phone<br>
+            <input id="updatedPhoneNum" class="phone" type="text" size="14" maxlength="12"/>
+            <br><br>
+            <input id="btnUpdate" name="btnUpdate" type="button" value="Update"/>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./assets/jquery-input-mask-phone-number.min.js"></script>
+  <script src="employeeList.js"></script> 
+  <script src="app.js"></script> 
+</body>
+
+</html>

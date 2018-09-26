@@ -14,15 +14,12 @@ $(document).ready(function() {
     // DISPLAY FORM FOR ADDING NEW EMPLOYEE TO LIST
     $("#addLink").click(function(){
         selectedRow = "";
-        $("#updateDelete").hide();
-        hideAll();
-        $("#addDiv").show();
+        hideAllAndShow("#addDiv");
     });
 
     // VERIFY AN EMPLOYEE EXISTS IN LIST
     $("#verifyLink").click(function(){
-        hideAll();
-        $("#verifyDiv").show();
+        hideAllAndShow("#verifyDiv");
     });
 
     // UPDATE FORM FOR CHANGING EXISTING EMPLOYEE INFO
@@ -32,13 +29,11 @@ $(document).ready(function() {
            alert("You must first select a row to update");
         }
         else {
-            $("#updateDelete").hide();
-            hideAll();
+            hideAllAndShow("#updateDiv");
             // POPULATE FORM FIELDS FROM EXISTING SELECTED ROW
             $("#updatedName").val(employeeList[selectedRow.id].name);
             $("#updatedOfficeNum").val(employeeList[selectedRow.id].officeNum);
             $("#updatedPhoneNum").val(employeeList[selectedRow.id].phoneNum);
-            $("#updateDiv").show();
         }
     });
 
@@ -50,7 +45,8 @@ $(document).ready(function() {
             alert("You must first select a row to delete");
         }
         else {
-            delete employeeList[selectedRow.id];
+            // Delete the node using splice
+            employeeList.splice(selectedRow.id,1);
             $("#viewLink").trigger('click');
         }
     });
@@ -72,15 +68,33 @@ $(document).ready(function() {
     }
 
     // ADD A NEW EMPLOYEE TO LIST BASED ON FORM INPUT THEN REDISPLAY UPDATED LIST
-    $("#btnAdd").click(function() {
-        let name = $("#name").val(); 
+    $("#btnAdd").click(function () {
+        let name = $("#name").val();
         let officeNum = $("#officeNum").val(); 
         let phoneNum = $("#phoneNum").val(); 
         employeeList.push({"name":name, "officeNum":officeNum, "phoneNum":phoneNum});
         hideAll();
         $("#updateDelete").show();
         showEmployeeData();
+        $('#name').val("");
+        $('#officeNum').val("");
+        $('#phoneNum').val("");
     });
+
+    // CHECK TO SEE IF EMPLOYEE EXISTS IN ARRAY
+    $('#btnVerify').click(function() {
+        let name = $("#searchForName").val();
+    
+        if(contains(employeeList, "name", name)) 
+        {
+            alert(name + " was found in array.");
+        } 
+        else 
+        {
+            alert(name + " was not found in array, Please check spelling.");
+        }
+        $("#viewLink").trigger('click');
+    })
 
     // UPDATE THE EXISTING EMPLOYEE INFO FROM FORM INPUT
     $("#btnUpdate").click(function() {
@@ -118,5 +132,30 @@ $(document).ready(function() {
         return tr;
     }
 
+    function contains(arr, key, val) {
+        let retVal = false;
+        try {
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i][key] === val) retVal = true;
+            }
+        } catch (e) {}
+        return retVal;
+    }
+    
+    function hideAllAndShow(divName) {
+        $("#updateDelete").hide();
+            hideAll();
+            $(divName).show();
+    }
 
- });
+    $('.numeric').on('input', function (event) { 
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    $('.phone').usPhoneFormat({
+        format: 'xxx-xxx-xxxx',
+    }) 
+
+})
+
+ 
