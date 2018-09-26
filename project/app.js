@@ -132,6 +132,8 @@ $(document).ready(function() {
         return tr;
     }
 
+    // CHECK TO SEE IF THE ARRAY CONTAINS A GIVEN VALUE FOR A PARTICULAR KEY
+    // TODO: FIX FUNCTION TO NOT CAUSE THE EXCEPTION. WILL LOOK AT LATER.
     function contains(arr, key, val) {
         let retVal = false;
         try {
@@ -142,16 +144,23 @@ $(document).ready(function() {
         return retVal;
     }
     
+    // HIDE THE UPDATE AND DELETE DIVS CONTAINING THEIR RESPECTIVE FORMS.
+    // SHOW THE PASSED IN DIVNAME
     function hideAllAndShow(divName) {
         $("#updateDelete").hide();
             hideAll();
             $(divName).show();
     }
 
+    // USED THE BELOW REGULAR EXPRESSION TO PREVENT USER FROM ENTERING 
+    // ANYTHING OTHER THAN A NUMERIC VALUE FOR OFFICE NUMBER
     $('.numeric').on('input', function (event) { 
         this.value = this.value.replace(/[^0-9]/g, '');
     });
 
+    // UTILIZE THE JQUERY PLUGIN TO BOTH PREVENT NON-NUMERIC CHARACTERS
+    // AS WELL AS HAVING IT AUTO POPULATE THE DASHES FOR ANY INPUTS 
+    // HAVING CLASS OF phone.
     $('.phone').usPhoneFormat({
         format: 'xxx-xxx-xxxx',
     }) 
